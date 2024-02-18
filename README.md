@@ -16,7 +16,7 @@ Para este desafio será necessário ter acesso ao Google Cloud Platform (GCP) pa
 
 ---
 ## 2- Análise Python - Jupyter Notebook
-1. Entre no site do Google Colabory, essa é a forma mais fácil e sem necessidade de instalar sistemas na máquina: [analise_sql](site https://colab.research.google.com/?hl=pt_BR)
+1. Entre no site do Google Colabory, essa é a forma mais fácil e sem necessidade de instalar sistemas na máquina: [analise_sql](https://colab.research.google.com/?hl=pt_BR)
 2. Em seguida, clique em `fazer login`, acesse com sua conta do Google.
 3. Abrirá uma página para você importar um arquivo notebook jupyter, que será o arquivo `analise_sql.ipynb` que está nesse repositório. Lembre-se de clonar esse repositório antes ou baixar o arquivo jupyter.
 4. Após importar o arquivo `analise_sql.ipynb` para o Colab, você pode executar as células para ver as análises em Python.
