@@ -1,52 +1,65 @@
 # Desafio Técnico - Cientista de Dados Júnior
+# Candidata - Nayara Valevskii
 
-## Descrição
+Para este desafio será necessário ter acesso ao Google Cloud Platform (GCP) para utilizar o BigQuery, onde serão visualizados e consultados os dados disponíveis no projeto `datario`.
 
-Bem-vindo ao desafio técnico para a vaga de Cientista de Dados Júnior no Escritório Municipal de Dados do Rio de Janeiro! Este desafio tem o objetivo de avaliar suas habilidades técnicas em manipulação de dados, consulta SQL, análise de dados e visualização de dados utilizando ferramentas como BigQuery e Python. A **data limite** do seu último commit no repositório é de **25/02/2024 às 23:59 UTC-3**.
+## 1- Análise SQL - GCP
 
-### Objetivo
+1. Ir até o [GCP Console](https://console.cloud.google.com/) e criar uma conta Google ou utilizar a sua conta existente para realizar login
+2. Criar ou selecionar um projeto existente com a opção *Sem organização*
+3. Na barra de pesquisas ou no menu lateral procurar pelo *BigQuery*, que é onde iremos acessar os dados
+4. Após entrar no console do *BigQuery*, iremos adicionar um novo projeto clicando em "+ Adicionar Dados" na barra Explorer.
+5. Em seguida, clique em "Fixar projeto por nome" e procure pelo projeto **datario**.
+6. Agora o projeto datario já está disponível na nossa barra explorer e podemos realizar nossas consultas.
+7. Clicando no botão *New Query* é possível adicionar uma consulta SQL. As consultas deste projeto estão na página [analise_sql](https://github.com/nayarawakewski/emd-desafio-junior-data-scientist/blob/desafio-nayara-valevskii/analise_sql.sql). Para visualizar, copie o trecho de uma das consultas, cole na caixa de texto e clique em **Run**/**Executar** (Não consultar as querys todas de uma vez, por conta do tamanho da base, as consultas ficaram lentas; opte por consultar trecho por trecho).
 
-O objetivo deste desafio é realizar análises exploratórias em conjuntos de dados públicos disponíveis no BigQuery, responder a perguntas específicas sobre esses dados utilizando SQL e Python, e criar visualizações informativas e visualmente atraentes.
 
-#### Observação
+---
+## 2- Análise Python - Jupyter Notebook
+1. Entre no site do Google Colabory, essa é a forma mais fácil e sem necessidade de instalar sistemas na máquina: 
+   ```
+   site https://colab.research.google.com/?hl=pt_BR
+   ```
+2. Em seguida, clique em `fazer login`, acesse com sua conta do Google.
+3. Abrirá uma página para você importar um arquivo notebook jupyter, que será o arquivo `analise_sql.ipynb` que está nesse repositório. Lembre-se de clonar esse repositório antes ou baixar o arquivo jupyter.
+4. Após importar o arquivo `analise_sql.ipynb` para o Colab, você pode executar as células para ver as análises em Python.
+5. Execute primeiro as atualizações das bibliotecas do Google, após isso execute a célua de instalação da biblioteca `basedosdados`, essa biblioteca fará a conexão com os dados da base `datario`.
+6. Para baixar os dados utilizando a biblioteca **basedosdados** será necessário utilizar o ID do projeto criado anteriormente no GCP. Para isso, clique no nome do projeto ou em "Selecionar um projeto" no Console do GCP e copie o **ID** do projeto.
+7. Nas células de seleção das tabelas, você irá alterar o trecho:
+```sql
+query, billing_project_id="ID DO SEU PROJETO", reauth = True
+```
+   Esse ID do projeto será utilizado no notebook `analise_python.ipynb`.
+   
+8. Agora é possível executar todas as células presentes no notebook e visualizar as análises em Python.
 
-É esperado que você possa não ter tido contato prévio com algumas das tecnologias solicitadas no desafio, e isso é intencional. Parte da avaliação consiste em verificar se você é capaz de aprender rapidamente e produzir resultados após estudar as tecnologias por algum tempo. Por essa razão, o desafio tem uma duração de 15 dias, permitindo que você tenha tempo para estudar e aprender antes de enviar suas respostas.
-
-### Conjunto de Dados
-
-Os conjuntos de dados que serão utilizados neste desafio são:
-
-- **Chamados do 1746:** Dados relacionados a chamados de serviços públicos na cidade do Rio de Janeiro. O caminho da tabela é : `datario.administracao_servicos_publicos.chamado_1746`
-- **Bairros do Rio de Janeiro:** Dados sobre os bairros da cidade do Rio de Janeiro - RJ. O caminho da tabela é: `datario.dados_mestres.bairro`
-- **Ocupação Hoteleira em Grandes Eventos no Rio**: Dados contendo o período de duração de alguns grandes eventos que ocorreram no Rio de Janeiro em 2022 e 2023 e a taxa de ocupação hoteleira da cidade nesses períodos. O caminho da tabela é: `datario.turismo_fluxo_visitantes.rede_hoteleira_ocupacao_eventos`
-
-### Ferramentas e Recursos
-
-Você precisará de acesso ao Google Cloud Platform (GCP) para utilizar o BigQuery e consultar os dados públicos disponíveis no projeto `datario`. Além disso, vamos utilizar a biblioteca `basedosdados` em Python para acessar os dados do BigQuery.
-
-- Tutorial para acessar dados no BigQuery, desde a criação da conta no GCP até consultar os dados utilizando SQL e Python: [Como acessar dados no BigQuery](https://docs.dados.rio/tutoriais/como-acessar-dados/)
-
-### Perguntas do Desafio
-
-As perguntas do desafio estão detalhadas no arquivo `perguntas_desafio.md`.
-
-## Etapas
-
-1. Siga o tutorial acima para criar sua conta no GCP e aprender como utilizar o BigQuery para consultar os dados.
-2. Faça um fork desse repositório.
-3. Utilize SQL para resolver todas as questões contidas no arquivo `perguntas_desafio.md` no BigQuery. Salve suas respostas em um arquivo `analise_sql.sql`.
-4. Utilize Python e pandas para resolver todas as questões contidas no arquivo `perguntas_desafio.md`. Salve suas respostas em um arquivo `analise_python.py` ou `analise_python.ipynb`. Para acessar os dados do BigQuery no python, siga o tutorial acima e utilize a biblioteca `basedosdados`.
-6. Utilize o LookerStudio, Power BI, StreamLit, Tableau ou qualquer outra ferramenta de visualização de sua preferência para criar visualizações informativas dos dados das 3 tabelas. Suas visualizações não precisam se limitar apenas aos resultados das análises; é encorajado que você explore os dados e crie visualizações interessantes sobre eles.
-7. Faça commits incrementais à medida que trabalha no desafio e, finalmente, faça push do seu código para o seu repositório no GitHub. Seu repositório deve conter um README com todos os passos necessários para rodar seu código e ver a visualização de dados que você criou.
-
-### Dúvidas
-
-Se tiver alguma dúvida ou precisar de esclarecimentos adicionais sobre o desafio, entre em contato pelo email escritoriodedados@gmail.com.
-
-Boa sorte e estamos ansiosos para ver suas soluções! 
+   Para mais detalhes, verifique o tutorial a seguir: [Como acessar dados no BigQuery](https://docs.dados.rio/tutoriais/como-acessar-dados/#como-criar-uma-conta-na-gcp)
 
 ---
 
-**Escritório de Dados**  
-**Prefeitura da Cidade do Rio de Janeiro**
 
+## 3- Visualização de Dados - PowerBi
+
+1. Para criar a visualização em PowerBi, foi salvo os dataframes df_chamados_1746 e df_bairros, da análise em Python feito anteriormente em extensão CSV.
+2. Foi utilizado o Figma para fazer os frames (Telas) das páginas do PowerBi, foi considerado  como base o layout do site Chamado 1746 do Rio de Janeiro.
+3. Foram criadas algumas análises:
+
+- Página 1: `Total Chamados`, `Chamados Resolvidos`, `Chamados Não Resolvidos`, `TopN5 Tipos de Chamados`;
+- Página 2: `TopN5 Tipos de Chamados Não Resolvidos`;
+- Página 3: `TopN5 Bairros com Chamados Não Resolvidos`;
+- Filtros das Páginas: `Ano`, `Mês`, `Tipo Chamado`, `Subprefeitura`, `Bairro`;
+
+Para visualizar o dashboard, acesso o link abaixo:
+
+[Análise Chamados ](https://app.powerbi.com/view?r=eyJrIjoiODc1ZWJkMTUtZmU3ZC00ZDdlLWI0ZWYtY2YxMWRiZjRjNmNkIiwidCI6ImVjYTFhZTJkLWU5MjktNGM2OS1iZmEyLTAxNWQ0YzQ3OGY4YSJ9)
+
+## 4- Considerações
+
+A idéia inicial era criar um aplicativo e dashboard no Streamlit, mas por conta do tamanho da base de dados, o aplicativo ficou muito lento, mesmo dividindo a base em vários dataframes e análises menores. Por este motivo foi optado por utilizar o PowerBi, optando por fazer análises mais simples, mais explicando o entendimento de cada análise feita.
+
+## 🎁 Expressões de gratidão
+
+* Obrigada pela oportunidade de participar do processo seletivo 📢;
+
+---
+⌨️ com ❤️ por [Nayara Vakevskii](https://github.com/NayaraWakewski) 😊
